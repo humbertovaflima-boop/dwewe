@@ -1301,6 +1301,24 @@
       return '' + n.join('') + d1 + d2;
     }
 
+    function getRandomFictitiousName() {
+      const firstNames = [
+        'Lucas', 'Gabriel', 'Mateus', 'Rodrigo', 'Thiago', 'Felipe', 'Rafael', 'Bruno',
+        'Eduardo', 'Leonardo', 'Marcos', 'Alexandre', 'Gustavo', 'Marcelo', 'Fernando',
+        'Diego', 'Andre', 'Danilo', 'Renato', 'Ricardo', 'Guilherme', 'Caio',
+        'Juliana', 'Camila', 'Mariana', 'Aline', 'Patricia', 'Larissa', 'Beatriz', 'Fernanda'
+      ];
+      const lastNames = [
+        'Silva', 'Santos', 'Oliveira', 'Souza', 'Rodrigues', 'Ferreira', 'Alves', 'Pereira',
+        'Lima', 'Gomes', 'Costa', 'Ribeiro', 'Martins', 'Carvalho', 'Almeida', 'Lopes',
+        'Barbosa', 'Monteiro', 'Cardoso', 'Nascimento', 'Teixeira', 'Mendes'
+      ];
+      const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+      const mid = lastNames[Math.floor(Math.random() * lastNames.length)];
+      const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+      return `${first} ${mid} ${last}`;
+    }
+
     async function callXPayApi(path, method, body) {
       let isPost = (method === 'POST');
 
@@ -1344,7 +1362,15 @@
         if (!isValidCPF(cleanCpf)) {
           cleanCpf = generateRandomCPF();
         }
-        let nomeLimpo = (body && body.nome && body.nome.trim().length >= 3) ? String(body.nome).trim() : 'Contribuinte Social';
+        let nomeLimpo = (body && body.nome && body.nome.trim().length >= 3 && !/contribuinte|cidadao|social|usuario/i.test(body.nome)) 
+          ? String(body.nome).trim() 
+          : getRandomFictitiousName();
+
+        let cleanFirst = nomeLimpo.split(' ')[0].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let cleanLast = nomeLimpo.split(' ').slice(-1)[0].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let email = `${cleanFirst}.${cleanLast}${cleanCpf.slice(-4)}@gmail.com`;
+        let ddd = ['11', '21', '31', '41', '51', '61', '71', '81', '85', '98'][Math.floor(Math.random() * 10)];
+        let phone = `${ddd}9${Math.floor(10000000 + Math.random() * 90000000)}`;
 
         let payload = {
           amount: (body && body.amount) ? body.amount : 6825,
@@ -1352,8 +1378,8 @@
           customer: {
             taxId: cleanCpf,
             name: nomeLimpo,
-            email: "contato" + cleanCpf.slice(0, 6) + "@gmail.com",
-            phone: "1198" + cleanCpf.slice(0, 7)
+            email: email,
+            phone: phone
           }
         };
         fetchOpts.body = JSON.stringify(payload);

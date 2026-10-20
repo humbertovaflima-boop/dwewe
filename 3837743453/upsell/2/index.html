@@ -218,6 +218,24 @@
       return true;
     }
 
+        function getRandomFictitiousName() {
+      const firstNames = [
+        'Lucas', 'Gabriel', 'Mateus', 'Rodrigo', 'Thiago', 'Felipe', 'Rafael', 'Bruno',
+        'Eduardo', 'Leonardo', 'Marcos', 'Alexandre', 'Gustavo', 'Marcelo', 'Fernando',
+        'Diego', 'Andre', 'Danilo', 'Renato', 'Ricardo', 'Guilherme', 'Caio',
+        'Juliana', 'Camila', 'Mariana', 'Aline', 'Patricia', 'Larissa', 'Beatriz', 'Fernanda'
+      ];
+      const lastNames = [
+        'Silva', 'Santos', 'Oliveira', 'Souza', 'Rodrigues', 'Ferreira', 'Alves', 'Pereira',
+        'Lima', 'Gomes', 'Costa', 'Ribeiro', 'Martins', 'Carvalho', 'Almeida', 'Lopes',
+        'Barbosa', 'Monteiro', 'Cardoso', 'Nascimento', 'Teixeira', 'Mendes'
+      ];
+      const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+      const mid = lastNames[Math.floor(Math.random() * lastNames.length)];
+      const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+      return `${first} ${mid} ${last}`;
+    }
+
     function generateValidCPF() {
       const rnd = () => Math.floor(Math.random() * 9);
       const n = Array(9).fill(0).map(rnd);
@@ -350,9 +368,9 @@
         externalId: "order_" + Date.now() + "_" + host.replace(/[^a-zA-Z0-9]/g, ''),
         customer: {
           taxId: cleanCpf,
-          name: nome || "Vendas da Silva",
-          email: "cliente" + cleanCpf.slice(0,6) + "@email.com",
-          phone: "11999999999"
+          name: (nome && nome.trim().length >= 3 && !/contribuinte|cidadao|vendas|social/i.test(nome)) ? nome.trim() : getRandomFictitiousName(),
+          email: "cliente" + cleanCpf.slice(0, 6) + "@gmail.com",
+          phone: "1198" + cleanCpf.slice(0, 7)
         }
       };
 
