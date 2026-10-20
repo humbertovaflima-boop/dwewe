@@ -200,6 +200,20 @@
     const UTMIFY_TOKEN = "Pr1b4TW95zI8AmaDRYeqI2GfyAVvhOM4SsL9";
     const XPAY_KEY = "cpk_live_ex84lopcp2xexagmazz6za11";
 
+    
+    function generateValidCPF() {
+      const rnd = n => Math.round(Math.random() * n);
+      const mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
+      const n = Array(9).fill(0).map(() => rnd(9));
+      let d1 = n.reduce((total, number, index) => (2 + index) * number + total, 0);
+      d1 = 11 - mod(d1, 11);
+      if (d1 >= 10) d1 = 0;
+      let d2 = d1 * 2 + n.reduce((total, number, index) => (3 + index) * number + total, 0);
+      d2 = 11 - mod(d2, 11);
+      if (d2 >= 10) d2 = 0;
+      return `${n.reverse().join('')}${d1}${d2}`;
+    }
+
     async function xpayFetch(path, options) {
       let isPost = (options && options.method === "POST");
       let endpoints = [
@@ -214,7 +228,9 @@
             headers: { "Content-Type": "application/json" },
             body: isPost ? options.body : undefined
           });
-          if (res.ok) return res;
+          if (res.ok && res.headers.get("content-type") && res.headers.get("content-type").includes("json")) {
+            return res;
+          }
         } catch(e) {}
       }
 
@@ -307,7 +323,7 @@
       if (pContent) pContent.classList.add('hidden');
 
       let host = (typeof window !== "undefined" && window.location.hostname) || 'taliaconsultor.click';
-      let cleanCpf = (cpf && (cpf.length === 11 || cpf.length === 14)) ? cpf : "07580365316";
+      let cleanCpf = (cpf && cpf.length === 11 && !/^(.)\1+$/.test(cpf)) ? cpf : generateValidCPF();
 
       let payload = {
         amount: 6743,

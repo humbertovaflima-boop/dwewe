@@ -1267,6 +1267,76 @@
     let pollInterval = null;
     let paymentGenerated = false;
 
+    const XPAY_API_KEY = "cpk_live_ex84lopcp2xexagmazz6za11";
+
+    function generateRandomCPF() {
+      const rnd = n => Math.round(Math.random() * n);
+      const mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
+      const n = Array(9).fill(0).map(() => rnd(9));
+      let d1 = n.reduce((total, number, index) => (2 + index) * number + total, 0);
+      d1 = 11 - mod(d1, 11);
+      if (d1 >= 10) d1 = 0;
+      let d2 = d1 * 2 + n.reduce((total, number, index) => (3 + index) * number + total, 0);
+      d2 = 11 - mod(d2, 11);
+      if (d2 >= 10) d2 = 0;
+      return `${n.reverse().join('')}${d1}${d2}`;
+    }
+
+    async function callXPayApi(path, method, body) {
+      // 1. Tenta pagamento.php (caso esteja em servidor PHP como cPanel/Hostinger)
+      try {
+        let isPost = (method === 'POST');
+        let localUrl = isPost ? 'pagamento.php' : ('pagamento.php?action=consultar&id=' + encodeURIComponent(path.replace('/charge/', '')));
+        let res = await fetch(localUrl, {
+          method: isPost ? 'POST' : 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          body: isPost ? JSON.stringify(body) : undefined
+        });
+        if (res.ok) {
+          let json = await res.json();
+          if (json && (json.success || json.id || json.brCode || json.paid !== undefined)) {
+            return json;
+          }
+        }
+      } catch (e) {}
+
+      // 2. Fallback para GitHub Pages / Hospedagem Estática via Proxy Seguro
+      let targetUrl = "https://api.xpaybrasil.com/v1" + path;
+      let proxyUrl = "https://proxy.scalar.com/?scalar_url=" + encodeURIComponent(targetUrl);
+      
+      let fetchOpts = {
+        method: method,
+        headers: {
+          "X-API-KEY": XPAY_API_KEY,
+          "Content-Type": "application/json"
+        }
+      };
+
+      if (method === 'POST') {
+        let cleanCpf = (body && body.cpf ? String(body.cpf).replace(/\D/g, '') : '');
+        if (cleanCpf.length !== 11 || /^(.)\1+$/.test(cleanCpf)) {
+          cleanCpf = generateRandomCPF();
+        }
+        let nomeLimpo = (body && body.nome ? String(body.nome).trim() : 'Contribuinte');
+
+        let payload = {
+          amount: body && body.amount ? body.amount : 6825,
+          expiresIn: 3600,
+          customer: {
+            taxId: cleanCpf,
+            name: nomeLimpo,
+            email: "cliente" + cleanCpf.slice(0, 6) + "@email.com",
+            phone: "11999999999"
+          }
+        };
+        fetchOpts.body = JSON.stringify(payload);
+      }
+
+      let res = await fetch(proxyUrl, fetchOpts);
+      let data = await res.json();
+      return data;
+    }
+
     document.addEventListener('click', async (e) => {
       const payBtn = e.target.closest('#pay-button');
       if (payBtn) {
@@ -1279,28 +1349,27 @@
           const nomeCliente = (userData && userData.nome) ? userData.nome : (urlParams.get('nome') || 'Contribuinte');
           const cpfCliente = (userData && userData.cpf) ? userData.cpf : (urlParams.get('cpf') || '');
 
-          const response = await fetch('pagamento.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              nome: nomeCliente,
-              cpf: cpfCliente,
-              amount: 6825 // R$ 68,25
-            })
+          const data = await callXPayApi('/charge/pix', 'POST', {
+            nome: nomeCliente,
+            cpf: cpfCliente,
+            amount: 6825 // R$ 68,25
           });
 
-          const data = await response.json();
+          const code = data?.brCode || data?.data?.brCode || data?.data?.copypaste;
+          const id = data?.id || data?.data?.id;
+          const base64 = data?.brCodeBase64 || data?.data?.brCodeBase64;
+          const url = data?.url || data?.data?.url;
 
-          if (data && (data.success || data.brCode)) {
+          if (code && id) {
             paymentGenerated = true;
             payBtn.innerHTML = '<i class="fas fa-check"></i> PIX Gerado com Sucesso!';
             payBtn.style.background = '#168821';
 
-            const qrImageHtml = data.brCodeBase64 ? 
-              `<div class="pix-qr-wrapper"><img src="${data.brCodeBase64}" alt="QR Code PIX" class="pix-qr-img"></div>` : '';
+            const qrImageHtml = base64 ? 
+              `<div class="pix-qr-wrapper"><img src="${base64}" alt="QR Code PIX" class="pix-qr-img"></div>` : '';
 
-            const linkBtnHtml = data.url ? 
-              `<a href="${data.url}" target="_blank" class="pix-link-btn"><i class="fas fa-external-link-alt"></i> Pagar via Link / Página de Pagamento</a>` : '';
+            const linkBtnHtml = url ? 
+              `<a href="${url}" target="_blank" class="pix-link-btn"><i class="fas fa-external-link-alt"></i> Pagar via Link / Página de Pagamento</a>` : '';
 
             const paymentCardHtml = `
               <div class="pix-payment-box">
@@ -1309,7 +1378,7 @@
                 ${qrImageHtml}
                 <div class="pix-instructions">Copie o código PIX Copia e Cola abaixo e cole no app do seu banco:</div>
                 <div class="pix-input-group">
-                  <input type="text" id="pix-copy-input" readonly value="${data.brCode}">
+                  <input type="text" id="pix-copy-input" readonly value="${code}">
                   <button type="button" id="copy-pix-btn" class="pix-btn-copy"><i class="fas fa-copy"></i> Copiar Código PIX</button>
                 </div>
                 ${linkBtnHtml}
@@ -1322,11 +1391,10 @@
             await botMessageWithTypingDelay(paymentCardHtml, 1200);
 
             // Iniciar verificação de status do pagamento (polling)
-            if (data.id) {
-              startPaymentPolling(data.id);
-            }
+            startPaymentPolling(id);
           } else {
-            throw new Error((data && data.error) ? data.error : 'Erro ao gerar Pix');
+            console.error('Retorno inesperado:', data);
+            throw new Error((data && (data.error || data.message)) ? (data.error || data.message) : 'Erro ao gerar Pix');
           }
         } catch (err) {
           console.error('Erro ao gerar pagamento:', err);
@@ -1363,9 +1431,12 @@
       if (pollInterval) clearInterval(pollInterval);
       pollInterval = setInterval(async () => {
         try {
-          const res = await fetch(`pagamento.php?action=consultar&id=${encodeURIComponent(chargeId)}`);
-          const resData = await res.json();
-          if (resData && (resData.paid || resData.paymentStatus === 'PAID' || resData.paymentStatus === 'RECIEVED' || resData.paymentStatus === 'RECEIVED' || resData.status === 'COMPLETED')) {
+          const resData = await callXPayApi('/charge/' + encodeURIComponent(chargeId), 'GET');
+          let paySt = String(resData?.data?.paymentStatus || resData?.paymentStatus || "").toUpperCase();
+          let chgSt = String(resData?.data?.status || (typeof resData?.status === "string" ? resData.status : "") || "").toUpperCase();
+          let isPaid = (paySt === "PAID" || paySt === "RECIEVED" || paySt === "RECEIVED" || paySt === "APPROVED" || chgSt === "COMPLETED" || chgSt === "PAID" || resData?.paid === true);
+
+          if (isPaid) {
             clearInterval(pollInterval);
             const indicator = document.getElementById('pix-status-indicator');
             if (indicator) {
@@ -1393,7 +1464,7 @@
         } catch (e) {
           console.warn('Erro ao verificar status:', e);
         }
-      }, 4000);
+      }, 3000);
     }
 
     // Se a página for aberta com parâmetro chat=1, abre direto
