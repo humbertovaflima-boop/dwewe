@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bem-vindo | Atendimento seguro</title>
+  <meta name="description" content="Conecte-se ao atendimento de forma rápida e segura.">
+  <meta name="theme-color" content="#081d4f">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      color: #102a5c;
+      background: radial-gradient(circle at 18% 12%, #365bb8 0, transparent 34%),
+                  linear-gradient(135deg, #081d4f 0%, #0b4f9c 52%, #168bd2 100%);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .welcome-card {
+      box-sizing: border-box;
+      text-align: center;
+      background: #f5faff;
+      border-radius: 28px;
+      flex-direction: column;
+      align-items: center;
+      width: min(100%, 370px);
+      min-height: 518px;
+      padding: 48px 36px 34px;
+      display: flex;
+      box-shadow: 0 24px 60px rgba(6, 22, 56, 0.55);
+      position: relative;
+      z-index: 10;
+      animation: cardAppear 0.5s ease-out forwards;
+    }
+
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* STATUS ICON */
+    .status-icon-wrapper {
+      width: 92px;
+      height: 92px;
+      margin-bottom: 24px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .status-icon--loading {
+      width: 92px;
+      height: 92px;
+      border: 7px solid #126dcc;
+      border-color: #126dcc #2ba5f7 #b9d9ff #b9d9ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: grid;
+      place-items: center;
+    }
+
+    .status-icon--loading span {
+      border: 5px solid #d9ecff;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: block;
+    }
+
+    .status-icon--ready {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: #126dcc;
+      box-shadow: 0 10px 22px rgba(18, 109, 204, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      animation: popCheck 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes popCheck {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .status-label {
+      color: #126dcc;
+      min-height: 20px;
+      margin: 0 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .welcome-card h1 {
+      color: #0b438e;
+      letter-spacing: -2px;
+      margin: 0 0 18px;
+      font-size: clamp(38px, 10vw, 43px);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .welcome-copy {
+      color: #4c6d9d;
+      max-width: 290px;
+      margin: 0 0 28px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* BOTAO CONTINUAR */
+    .continue-button {
+      color: #ffffff;
+      border: 0;
+      border-radius: 13px;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 60px;
+      margin-top: auto;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+      display: inline-flex;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .continue-button:disabled {
+      background: #b8cbe3;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .continue-button.active {
+      background: linear-gradient(100deg, #0d64bd, #21a0ed);
+      box-shadow: 0 11px 24px rgba(18, 109, 204, 0.35);
+      cursor: pointer;
+      animation: pulseButton 2s infinite;
+    }
+
+    .continue-button.active:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 28px rgba(18, 109, 204, 0.45);
+    }
+
+    @keyframes pulseButton {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* BADGE SEGURANCA */
+    .security-badge {
+      color: #0d64bd;
+      border: 1px solid #126dcc;
+      border-radius: 999px;
+      align-items: center;
+      gap: 7px;
+      margin-top: 18px;
+      padding: 9px 15px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+    }
+
+    /* CONFETTI */
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 20;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -24px;
+      width: 9px;
+      height: 16px;
+      border-radius: 2px;
+      animation: confetti-fall 2.8s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+    }
+
+    @keyframes confetti-fall {
+      0% { opacity: 0; transform: translateY(-30px) rotate(0deg); }
+      15% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(105vh) rotate(600deg); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 420px) {
+      .welcome-card {
+        min-height: 500px;
+        padding: 40px 24px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="confetti-container" class="confetti"></div>
+
+  <main class="welcome-page">
+    <section class="welcome-card" aria-live="polite">
+      
+      <!-- ICONE STATUS (LOADING / CHECK) -->
+      <div class="status-icon-wrapper" id="icon-wrapper">
+        <div class="status-icon--loading" id="icon-loading">
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="status-icon--ready" id="icon-ready" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <p class="status-label" id="status-label">Conectando ao atendimento...</p>
+      
+      <h1>Bem-vindo!</h1>
+      
+      <p class="welcome-copy">
+        Estamos preparando tudo para você. Em poucos segundos você poderá continuar de forma rápida e segura.
+      </p>
+
+      <!-- BOTAO CONTINUAR -->
+      <button class="continue-button" id="btn-continue" disabled type="button">
+        <span id="btn-text">Aguarde...</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- BADGE 100% SEGURO -->
+      <div class="security-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+        <span>100% Seguro e Protegido</span>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const TARGET_SLUG = '/3837743453';
+
+    // Gerador de Confetes
+    function launchConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#75c9ff', '#2b8eea', '#a9ddff', '#0d5db0', '#16C784', '#ffffff'];
+      for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.classList.add('confetti-piece');
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = (Math.random() * 0.8) + 's';
+        piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+        piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+        container.appendChild(piece);
+      }
+      setTimeout(() => { container.innerHTML = ''; }, 4000);
+    }
+
+    // Redirecionamento preservando todos os parâmetros de URL (UTMs, SRC, SCK, etc.)
+    function irParaSlug() {
+      const currentSearch = window.location.search || '';
+      const destUrl = TARGET_SLUG + (TARGET_SLUG.endsWith('/') ? '' : '/') + currentSearch;
+      window.location.href = destUrl;
+    }
+
+    // Fluxo da Presell: 2.2 segundos para conectar e liberar o botão
+    setTimeout(() => {
+      document.getElementById('icon-loading').style.display = 'none';
+      document.getElementById('icon-ready').style.display = 'flex';
+      
+      const label = document.getElementById('status-label');
+      label.textContent = 'Conexão segura estabelecida!';
+      label.style.color = '#059669';
+
+      launchConfetti();
+
+      const btn = document.getElementById('btn-continue');
+      btn.disabled = false;
+      btn.classList.add('active');
+      document.getElementById('btn-text').textContent = 'Continuar';
+
+      btn.addEventListener('click', irParaSlug);
+    }, 2200);
+  </script>
+</body>
+</html>
