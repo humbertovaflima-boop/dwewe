@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /3837743453/
+
+Sitemap: /sitemap.xml

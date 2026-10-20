@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionando para o Atendimento...</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    params.set('chat', '1');
+    window.location.replace('consultad41d.html?' + params.toString());
+  </script>
+</head>
+<body style="font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f8f9fa;">
+  <p>Carregando atendimento virtual...</p>
+</body>
+</html>

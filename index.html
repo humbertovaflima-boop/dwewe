@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Refeições & Panelada Tradicional | Teresina - PI</title>
+  <meta name="description" content="Serviços ambulantes de alimentação, refeições caseiras, marmitex diário e a tradicional panelada no Mercado Central de Teresina - PI. Qualidade, sabor e tradição.">
+  <meta name="keywords" content="panelada teresina, marmitex mercado central, refeicoes ambulantes teresina, comida caseira teresina piaui">
+  <meta name="author" content="Antonio Lucas de Sousa Oliveira">
+  <meta name="robots" content="index, follow">
+
+  <!-- Tailwind CSS & Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased flex flex-col min-h-screen">
+
+  <!-- AVISO TOPO / CONTATO RÁPIDO -->
+  <div class="bg-stone-900 text-stone-300 text-xs py-2 px-4 border-b border-stone-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span><i class="fa-solid fa-location-dot text-brand-500 mr-1"></i> Mercado Central, Box 55 - Centro, Teresina - PI</span>
+        <span class="hidden md:inline"><i class="fa-regular fa-clock text-brand-500 mr-1"></i> Seg a Sáb: 06h às 15h</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:86994970307" class="hover:text-white transition"><i class="fa-solid fa-phone text-brand-500 mr-1"></i> (86) 99497-0307</a>
+        <a href="mailto:lucaspanelada.pagbank10@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope text-brand-500 mr-1"></i> lucaspanelada.pagbank10@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-amber-600 flex items-center justify-center text-white text-lg font-bold shadow-md shadow-brand-500/20">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-stone-900 block leading-tight">Lucas Refeições</span>
+          <span class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider block">Panelada & Marmitex</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600">
+        <a href="index.html" class="text-brand-600 font-semibold transition">Início</a>
+        <a href="sobre.html" class="hover:text-brand-600 transition">Sobre Nós</a>
+        <a href="#cardapio" class="hover:text-brand-600 transition">Cardápio</a>
+        <a href="#diferenciais" class="hover:text-brand-600 transition">Diferenciais</a>
+        <a href="contato.html" class="hover:text-brand-600 transition">Contato</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://api.whatsapp.com/send?phone=5586994970307&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20ou%20saber%20o%20card%C3%A1pio%20do%20dia" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 shadow-sm transition">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Pedir no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-amber-500/10 via-stone-100 to-stone-50 py-16 sm:py-24 px-4 overflow-hidden border-b border-stone-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-medal text-brand-600"></i> Tradição Culinária em Teresina - PI
+        </div>
+        
+        <h1 class="text-3xl sm:text-5xl font-black text-stone-900 tracking-tight leading-tight">
+          O Verdadeiro Sabor Caseiro e a Tradicional <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-amber-600">Panelada Piauiense</span>
+        </h1>
+        
+        <p class="text-base sm:text-lg text-stone-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          Serviços de alimentação preparados diariamente com ingredientes selecionados, tempero autêntico da nossa terra e rigoroso padrão de higiene no Mercado Central de Teresina.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#cardapio" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-extrabold px-6 py-3.5 rounded-xl shadow-lg shadow-brand-500/25 transition text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-book-open"></i> Ver Pratos e Cardápio
+          </a>
+          <a href="contato.html" class="w-full sm:w-auto bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 font-bold px-6 py-3.5 rounded-xl shadow-sm transition text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-brand-600"></i> Como Chegar no Box 55
+          </a>
+        </div>
+
+        <div class="pt-6 border-t border-stone-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+          <div>
+            <div class="text-xl sm:text-2xl font-black text-stone-900">+10 Anos</div>
+            <div class="text-xs text-stone-500 font-medium">De Tradição Local</div>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-black text-stone-900">100% Fresco</div>
+            <div class="text-xs text-stone-500 font-medium">Preparo Diário Matinal</div>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-black text-stone-900">Mercado Central</div>
+            <div class="text-xs text-stone-500 font-medium">Ponto de Referência</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative">
+        <div class="relative bg-white rounded-3xl p-4 shadow-xl border border-stone-200">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Prato de Comida Caseira Típica" class="w-full h-80 object-cover rounded-2xl shadow-inner">
+          <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-2xl shadow-lg border border-stone-200 flex items-center gap-3">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-900">Empresa Regularizada</div>
+              <div class="text-[11px] text-stone-500 font-mono">CNPJ: 68.421.173/0001-17</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" class="py-16 px-4 bg-white border-b border-stone-200">
+    <div class="max-w-6xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Nosso Compromisso</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-stone-900">Por que escolher o Lucas Refeições?</h2>
+        <p class="text-stone-600 text-sm">Trabalhamos dentro de todas as normas da vigilância sanitária, garantindo sabor autêntico com responsabilidade e respeito aos clientes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3 class="font-bold text-lg text-stone-900">Sabor Caseiro Autêntico</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">Temperos naturais, cheiro-verde fresco, alho e cebola refogados na hora. Resgatamos o verdadeiro almoço da família brasileira.</p>
+        </div>
+
+        <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-hand-sparkles"></i>
+          </div>
+          <h3 class="font-bold text-lg text-stone-900">Higiene & Procedência</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">Ingredientes inspecionados, manuseio seguro de carnes e legumes com controle rigoroso de limpeza em nosso box no Mercado Central.</p>
+        </div>
+
+        <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-3 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-motorcycle"></i>
+          </div>
+          <h3 class="font-bold text-lg text-stone-900">Atendimento & Encomendas</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">Refeições para retirada no local ou entregas rápidas para trabalhadores do comércio central de Teresina com pontualidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO / SERVIÇOS -->
+  <section id="cardapio" class="py-16 px-4 bg-stone-100/70 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Cardápio do Dia</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-stone-900">Nossos Principais Pratos e Refeições</h2>
+        <p class="text-stone-600 text-sm">Opções completas, bem servidas e preparadas com o carinho que você merece.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Prato 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Panelada Tradicional" class="w-full h-44 object-cover">
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-base text-stone-900">Panelada Tradicional Piauiense</h3>
+                <span class="text-xs font-extrabold bg-brand-50 text-brand-700 px-2.5 py-1 rounded-lg border border-brand-200">Especial</span>
+              </div>
+              <p class="text-stone-600 text-xs leading-relaxed">Cozida lentamente com tempero especial da casa. Acompanha arroz branco soltinho, farinha de mandioca e vinagrete fresco.</p>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-stone-500">
+              <span><i class="fa-solid fa-bowl-food text-brand-600"></i> Porção Completa</span>
+              <a href="https://api.whatsapp.com/send?phone=5586994970307&text=Quero%20consultar%20a%20Panelada%20Tradicional" target="_blank" class="text-brand-600 hover:underline">Pedir agora &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prato 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Marmitex Executivo" class="w-full h-44 object-cover">
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-base text-stone-900">Marmitex Executivo do Dia</h3>
+                <span class="text-xs font-extrabold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-lg border border-emerald-200">Mais Pedido</span>
+              </div>
+              <p class="text-stone-600 text-xs leading-relaxed">Carne de sol, frango grelhado ou bisteca suína. Acompanha feijão carioca, arroz, macarrão e salada mista do dia.</p>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-stone-500">
+              <span><i class="fa-solid fa-box text-emerald-600"></i> Tamanhos P, M e G</span>
+              <a href="https://api.whatsapp.com/send?phone=5586994970307&text=Quero%20consultar%20o%20Marmitex%20Executivo" target="_blank" class="text-brand-600 hover:underline">Pedir agora &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prato 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm flex flex-col justify-between">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Prato Feito Tradicional" class="w-full h-44 object-cover">
+          <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-base text-stone-900">Prato Feito para Almoço</h3>
+                <span class="text-xs font-extrabold bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-200">No Local</span>
+              </div>
+              <p class="text-stone-600 text-xs leading-relaxed">Servido quentinho no Box 55 do Mercado Central. Refeição rápida, farta e saborosa para quem está na correria do centro.</p>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-stone-500">
+              <span><i class="fa-solid fa-clock text-blue-600"></i> Das 10h às 14h30</span>
+              <a href="https://api.whatsapp.com/send?phone=5586994970307&text=Quero%20saber%20o%20PF%20de%20hoje" target="_blank" class="text-brand-600 hover:underline">Consultar &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES DA EMPRESA & TRANSPARÊNCIA (GOOGLE ADS COMPLIANCE) -->
+  <section class="py-16 px-4 bg-white border-b border-stone-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4">
+        <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Identificação Legal</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-stone-900">Empresa Legalmente Constituída</h2>
+        <p class="text-stone-600 text-sm leading-relaxed">
+          Atuamos em estrita conformidade com a legislação tributária e sanitária brasileira, garantindo transparência a todos os clientes, parceiros e fornecedores.
+        </p>
+
+        <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200 space-y-2.5 text-xs">
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">Razão Social:</span>
+            <span class="font-bold text-stone-800">68.421.173 Antonio Lucas de Sousa Oliveira</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">CNPJ:</span>
+            <span class="font-bold text-stone-800 font-mono">68.421.173/0001-17</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">Atividade Principal (CNAE):</span>
+            <span class="font-bold text-stone-800">56.12-1-00 - Serviços ambulantes de alimentação</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">Endereço Comercial:</span>
+            <span class="font-bold text-stone-800">Rua Lisandro Nogueira, Box 55, Edif Mercado Central</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">Bairro / CEP:</span>
+            <span class="font-bold text-stone-800">Centro - CEP: 64000-200</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-stone-200">
+            <span class="text-stone-500 font-semibold">Cidade / UF:</span>
+            <span class="font-bold text-stone-800">Teresina - Piauí</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-stone-500 font-semibold">Contato Direto:</span>
+            <span class="font-bold text-stone-800">(86) 99497-0307 | lucaspanelada.pagbank10@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-500/10 to-brand-500/10 rounded-3xl p-8 border border-amber-200/60 space-y-6">
+        <h3 class="font-extrabold text-xl text-stone-900 flex items-center gap-2">
+          <i class="fa-solid fa-shield-heart text-brand-600"></i> Políticas de Atendimento e Entrega
+        </h3>
+        <ul class="space-y-3 text-xs sm:text-sm text-stone-600">
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+            <span><strong>Pagamentos Facilitados:</strong> Aceitamos Pix, cartões de débito/crédito e dinheiro em espécie.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+            <span><strong>Cancelamento e Troca:</strong> Caso ocorra qualquer divergência no seu pedido, realizamos a substituição imediata ou o estorno total do valor pago.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+            <span><strong>Privacidade de Dados (LGPD):</strong> Seus dados de contato fornecidos para entregas são utilizados estritamente para o envio do seu pedido e nunca compartilhados.</span>
+          </li>
+        </ul>
+        <div class="pt-4 flex flex-wrap gap-3">
+          <a href="privacidade.html" class="text-xs text-brand-700 font-bold hover:underline bg-white px-3 py-1.5 rounded-lg border border-brand-200 shadow-sm">Política de Privacidade</a>
+          <a href="termos.html" class="text-xs text-brand-700 font-bold hover:underline bg-white px-3 py-1.5 rounded-lg border border-brand-200 shadow-sm">Termos de Uso</a>
+          <a href="contato.html" class="text-xs text-brand-700 font-bold hover:underline bg-white px-3 py-1.5 rounded-lg border border-brand-200 shadow-sm">Fale Conosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO DE CONTATO DIRETO -->
+  <section class="py-16 px-4 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-extrabold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Atendimento ao Cliente</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-stone-900">Envie uma Mensagem ou Faça sua Encomenda</h2>
+        <p class="text-stone-600 text-sm">Preencha o formulário abaixo que retornaremos rapidamente.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+        <form id="contactForm" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="nome" class="block text-xs font-bold text-stone-700 mb-1">Seu Nome Completo *</label>
+              <input type="text" id="nome" name="nome" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Ex: Maria dos Santos">
+            </div>
+            <div>
+              <label for="telefone" class="block text-xs font-bold text-stone-700 mb-1">Telefone / WhatsApp *</label>
+              <input type="tel" id="telefone" name="telefone" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="(86) 99999-9999">
+            </div>
+          </div>
+          <div>
+            <label for="email" class="block text-xs font-bold text-stone-700 mb-1">E-mail *</label>
+            <input type="email" id="email" name="email" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="seuemail@exemplo.com">
+          </div>
+          <div>
+            <label for="mensagem" class="block text-xs font-bold text-stone-700 mb-1">Mensagem ou Pedido *</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Digite sua dúvida, quantidade de marmitex ou encomenda especial..."></textarea>
+          </div>
+          <div id="formSuccess" class="hidden bg-emerald-50 text-emerald-800 text-xs font-semibold p-3 rounded-xl border border-emerald-200">
+            <i class="fa-solid fa-check-circle mr-1"></i> Mensagem registrada com sucesso! Entraremos em contato em instantes.
+          </div>
+          <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-md shadow-brand-500/20 transition">
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER GOOGLE ADS COMPLIANT -->
+  <footer class="bg-stone-900 text-stone-400 text-xs pt-12 pb-8 border-t border-stone-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Coluna 1 -->
+        <div class="space-y-3 md:col-span-1">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <span class="font-extrabold text-base text-white">Lucas Refeições</span>
+          </div>
+          <p class="text-stone-400 leading-relaxed text-xs">
+            Alimentação caseira tradicional, marmitex diário e panelada típica no Mercado Central de Teresina - PI.
+          </p>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-stone-200 text-xs uppercase tracking-wider">Links Rápidos</h4>
+          <ul class="space-y-1.5">
+            <li><a href="index.html" class="hover:text-white transition">Início</a></li>
+            <li><a href="sobre.html" class="hover:text-white transition">Sobre a Empresa</a></li>
+            <li><a href="#cardapio" class="hover:text-white transition">Pratos e Cardápio</a></li>
+            <li><a href="contato.html" class="hover:text-white transition">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3 -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-stone-200 text-xs uppercase tracking-wider">Políticas e Termos</h4>
+          <ul class="space-y-1.5">
+            <li><a href="privacidade.html" class="hover:text-white transition">Política de Privacidade</a></li>
+            <li><a href="termos.html" class="hover:text-white transition">Termos de Uso</a></li>
+            <li><a href="privacidade.html#cookies" class="hover:text-white transition">Política de Cookies</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4 -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-stone-200 text-xs uppercase tracking-wider">Dados da Empresa</h4>
+          <p class="text-stone-400 leading-relaxed text-xs">
+            <strong class="text-stone-300">Razão Social:</strong> 68.421.173 Antonio Lucas de Sousa Oliveira<br>
+            <strong class="text-stone-300">CNPJ:</strong> 68.421.173/0001-17<br>
+            <strong class="text-stone-300">Endereço:</strong> Rua Lisandro Nogueira, Box 55, Edif Mercado Central, Centro, CEP 64000-200, Teresina - PI<br>
+            <strong class="text-stone-300">Telefone:</strong> (86) 99497-0307
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-stone-800 text-center text-stone-500 space-y-2">
+        <p>&copy; 2026 68.421.173 Antonio Lucas de Sousa Oliveira - CNPJ 68.421.173/0001-17. Todos os direitos reservados.</p>
+        <p class="text-[11px] text-stone-600">Serviços ambulantes de alimentação (CNAE 56.12-1-00) - Teresina, Piauí.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BANNER DE COOKIES LGPD -->
+  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 max-w-xl mx-auto bg-stone-900 text-white p-4 rounded-2xl shadow-2xl border border-stone-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs z-50">
+    <p class="text-stone-300">
+      Utilizamos cookies para aprimorar sua experiência e analisar o tráfego em conformidade com a LGPD e as políticas do Google. Ao continuar navegando, você concorda com nossa <a href="privacidade.html" class="text-brand-400 underline">Política de Privacidade</a>.
+    </p>
+    <button onclick="aceitarCookies()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2 rounded-xl shrink-0 transition">
+      Aceitar
+    </button>
+  </div>
+
+  <script>
+    // Form handling
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.remove('hidden');
+      this.reset();
+    });
+
+    // Cookie consent
+    function aceitarCookies() {
+      localStorage.setItem('cookies_accepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    if (localStorage.getItem('cookies_accepted') === 'true') {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
