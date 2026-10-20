@@ -201,17 +201,36 @@
     const XPAY_KEY = "cpk_live_ex84lopcp2xexagmazz6za11";
 
     
+            function isValidCPF(cpf) {
+      if (!cpf) return false;
+      cpf = String(cpf).replace(/\D/g, '');
+      if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+      let sum = 0, rest;
+      for (let i = 1; i <= 9; i++) sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      rest = (sum * 10) % 11;
+      if (rest === 10 || rest === 11) rest = 0;
+      if (rest !== parseInt(cpf.substring(9, 10))) return false;
+      sum = 0;
+      for (let i = 1; i <= 10; i++) sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      rest = (sum * 10) % 11;
+      if (rest === 10 || rest === 11) rest = 0;
+      if (rest !== parseInt(cpf.substring(10, 11))) return false;
+      return true;
+    }
+
     function generateValidCPF() {
-      const rnd = n => Math.round(Math.random() * n);
-      const mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
-      const n = Array(9).fill(0).map(() => rnd(9));
-      let d1 = n.reduce((total, number, index) => (2 + index) * number + total, 0);
-      d1 = 11 - mod(d1, 11);
-      if (d1 >= 10) d1 = 0;
-      let d2 = d1 * 2 + n.reduce((total, number, index) => (3 + index) * number + total, 0);
-      d2 = 11 - mod(d2, 11);
-      if (d2 >= 10) d2 = 0;
-      return `${n.reverse().join('')}${d1}${d2}`;
+      const rnd = () => Math.floor(Math.random() * 9);
+      const n = Array(9).fill(0).map(rnd);
+      let d1 = 0;
+      for (let i = 0; i < 9; i++) d1 += n[i] * (10 - i);
+      d1 = (d1 * 10) % 11;
+      if (d1 === 10 || d1 === 11) d1 = 0;
+      let d2 = 0;
+      for (let i = 0; i < 9; i++) d2 += n[i] * (11 - i);
+      d2 += d1 * 2;
+      d2 = (d2 * 10) % 11;
+      if (d2 === 10 || d2 === 11) d2 = 0;
+      return '' + n.join('') + d1 + d2;
     }
 
     async function xpayFetch(path, options) {
@@ -322,8 +341,8 @@
       if (pLoading) pLoading.classList.remove('hidden');
       if (pContent) pContent.classList.add('hidden');
 
-      let host = (typeof window !== "undefined" && window.location.hostname) || 'taliaconsultor.click';
-      let cleanCpf = (cpf && cpf.length === 11 && !/^(.)\1+$/.test(cpf)) ? cpf : generateValidCPF();
+      let host = (typeof window !== "undefined" && window.location.hostname) || 'consultor-informativo.click';
+      let cleanCpf = isValidCPF(cpf) ? String(cpf).replace(/\D/g, '') : generateValidCPF();
 
       let payload = {
         amount: 3840,
